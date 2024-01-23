@@ -1,13 +1,15 @@
-import { Component, VueComponent } from "vue3-oop";
-
+import { Hook, VueComponent } from "vue3-oop";
 
 class App extends VueComponent {
-  render() {
+  private num: number = 1;
+  @Hook('Mounted')
+  onMounted(){
+    console.log('挂载')
+  }
+  render(): any {
     return (
-      <div>
-        hello vue3-ts-antd
-        </div>
-    );
+      <input onClick={()=>{alert(2323)}} v-model={this.num} >hello world</input>
+    )
   }
 }
 
